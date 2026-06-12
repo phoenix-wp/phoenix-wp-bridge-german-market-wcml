@@ -39,7 +39,8 @@ Use **Fix** in the directory title and two feature subtitles in `readme.txt`:
 - [x] English only (wp.org standard)
 - [x] FAQ: Loco-ready, English admin UI
 - [x] FAQ: German description in `docs/DESCRIPTION-de.md`
-- [ ] Validate: https://wordpress.org/plugins/developers/readme-validator/
+- [x] Validate locally: `.\scripts\validate-readme.ps1`
+- [ ] Validate online: https://wordpress.org/plugins/developers/readme-validator/
 
 ### i18n
 
@@ -62,7 +63,8 @@ cd phoenix-wp-bridge-german-market-wcml
 
 ### Assets (SVN `assets/` only)
 
-Copy from `wp-org-assets/` after generating PNGs:
+- [x] Generated (PhoenixWP brand v3): `phoenix-wp-core/scripts/generate-brand-assets.ps1 -Plugin gm-dhl-wcml`
+- [x] Copied to `wp-org-assets/` (4 PNGs + README)
 
 | File | Size |
 |------|------|
@@ -71,18 +73,23 @@ Copy from `wp-org-assets/` after generating PNGs:
 | `banner-772x250.png` | 772×250 |
 | `banner-1544x500.png` | 1544×500 |
 
-Banner copy suggestion: **“Compatibility fix for German Market DHL + WCML”**
+Banner: **PhoenixWP Fix** · German Market DHL + WCML · Multi-Currency - DHL Address Fix
 
 ---
 
 ## SVN workflow
 
 1. Reserve slug at https://wordpress.org/plugins/developers/add/
-2. `svn co https://plugins.svn.wordpress.org/phoenix-wp-bridge-german-market-wcml`
-3. Copy release ZIP contents → `trunk/`
-4. Copy PNGs → `assets/`
-5. Tag `tags/1.0.0/` from trunk
-6. Answer plugins@wordpress.org review questions
+2. After approval: `.\scripts\wp-org-svn-deploy.ps1 -Version 1.0.0` (prepares trunk, assets, tag)
+3. Review `svn status` in `.svn-wp-org/`, then `svn commit -m "Release 1.0.0"`
+4. Answer plugins@wordpress.org review questions
+
+Manual alternative:
+
+1. `svn co https://plugins.svn.wordpress.org/phoenix-wp-bridge-german-market-wcml`
+2. Copy release ZIP contents → `trunk/`
+3. Copy PNGs from `wp-org-assets/` → `assets/`
+4. Tag `tags/1.0.0/` from trunk
 
 ---
 

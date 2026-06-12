@@ -1,6 +1,7 @@
 /dist/
 /vendor/
 /node_modules/
+/.svn-wp-org/
 .DS_Store
 Thumbs.db
 *.log

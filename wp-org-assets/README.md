@@ -9,12 +9,23 @@ Upload these PNGs to the **SVN `assets/` folder**, not to `trunk/`.
 | `banner-772x250.png` | 772×250 |
 | `banner-1544x500.png` | 1544×500 |
 
-**Banner text suggestion:**
+**Source of truth (design):** `phoenix-wp-core/local-images/` — regenerate via:
 
-**Line 1:** Compatibility fix for German Market DHL + WCML  
-**Line 2:** WCML Multi-Currency Fix · DHL International Address Fix  
-**Icon:** PhoenixWP mark + small “fix”/wrench motif — regenerate from `phoenix-wp-core/scripts/generate-brand-assets.ps1` when available.
+```powershell
+cd phoenix-wp-core
+.\scripts\generate-brand-assets.ps1 -Plugin gm-dhl-wcml
+```
+
+**Banner copy (v3 brand):**
+
+| Line | Text |
+|------|------|
+| Title | PhoenixWP Fix |
+| Subtitle 1 | German Market DHL + WCML |
+| Subtitle 2 | Multi-Currency - DHL Address Fix |
+
+**Icon symbol:** linked modules + wrench (`Draw-FixBridgeSymbol`) — same PhoenixWP canvas + turquoise arc as Gift.
 
 Do **not** include this folder in the plugin ZIP / SVN `trunk/`.
 
-See `docs/WP-ORG-SUBMISSION.md`.
+See `phoenix-wp-core/docs/BRAND-ASSETS.md` and `docs/WP-ORG-SUBMISSION.md`.
