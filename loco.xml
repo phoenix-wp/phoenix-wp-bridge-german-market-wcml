@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bundle>
+	<domain name="phoenix-wp-bridge-german-market-wcml">
+		<project name="PhoenixWP Fix — German Market DHL &amp; WCML">
+			<source>
+				<directory>.</directory>
+				<exclude>
+					<directory>vendor</directory>
+					<directory>dist</directory>
+					<directory>node_modules</directory>
+					<directory>wp-org-assets</directory>
+				</exclude>
+			</source>
+			<target>
+				<directory>languages</directory>
+			</target>
+		</project>
+	</domain>
+	<exclude>
+		<directory>vendor</directory>
+		<directory>dist</directory>
+		<directory>wp-org-assets</directory>
+	</exclude>
+</bundle>
