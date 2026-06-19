@@ -23,8 +23,8 @@ final class Install {
 	 * Registers lifecycle hooks.
 	 */
 	public static function register_hooks(): void {
-		register_activation_hook( PHOENIX_WP_BRIDGE_GM_WCML_FILE, array( self::class, 'activate' ) );
-		register_deactivation_hook( PHOENIX_WP_BRIDGE_GM_WCML_FILE, array( self::class, 'deactivate' ) );
+		register_activation_hook( PHOENIX_GERMAN_MARKET_DHL_WCML_FIX_FOR_WOOCOMMERCE_FILE, array( self::class, 'activate' ) );
+		register_deactivation_hook( PHOENIX_GERMAN_MARKET_DHL_WCML_FIX_FOR_WOOCOMMERCE_FILE, array( self::class, 'deactivate' ) );
 	}
 
 	/**
@@ -32,10 +32,10 @@ final class Install {
 	 */
 	public static function activate(): void {
 		if ( ! self::requirements_met() ) {
-			deactivate_plugins( PHOENIX_WP_BRIDGE_GM_WCML_BASENAME );
+			deactivate_plugins( PHOENIX_GERMAN_MARKET_DHL_WCML_FIX_FOR_WOOCOMMERCE_BASENAME );
 			wp_die(
-				esc_html__( 'PhoenixWP Fix — German Market DHL & WCML requires WordPress 6.7+, PHP 8.2+, and WooCommerce.', 'phoenix-wp-bridge-german-market-wcml' ),
-				esc_html__( 'Plugin Activation Error', 'phoenix-wp-bridge-german-market-wcml' ),
+				esc_html__( 'PhoenixWP Fix — German Market DHL & WCML requires WordPress 6.7+, PHP 8.2+, and WooCommerce.', 'phoenix-german-market-dhl-wcml-fix-for-woocommerce' ),
+				esc_html__( 'Plugin Activation Error', 'phoenix-german-market-dhl-wcml-fix-for-woocommerce' ),
 				array( 'back_link' => true )
 			);
 		}

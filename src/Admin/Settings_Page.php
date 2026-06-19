@@ -21,7 +21,7 @@ final class Settings_Page {
 
 	private static ?self $instance = null;
 
-	public const PAGE_SLUG = 'phoenix-wp-bridge-german-market-wcml';
+	public const PAGE_SLUG = 'phoenix-german-market-dhl-wcml-fix-for-woocommerce';
 
 	public static function instance(): self {
 		if ( null === self::$instance ) {
@@ -49,8 +49,8 @@ final class Settings_Page {
 
 		add_submenu_page(
 			$parent,
-			__( 'GM DHL WCML Fix', 'phoenix-wp-bridge-german-market-wcml' ),
-			__( 'GM DHL WCML Fix', 'phoenix-wp-bridge-german-market-wcml' ),
+			__( 'GM DHL WCML Fix', 'phoenix-german-market-dhl-wcml-fix-for-woocommerce' ),
+			__( 'GM DHL WCML Fix', 'phoenix-german-market-dhl-wcml-fix-for-woocommerce' ),
 			'manage_woocommerce',
 			self::PAGE_SLUG,
 			array( $this, 'render_page' )
@@ -104,16 +104,16 @@ final class Settings_Page {
 		$settings = Settings::get();
 		?>
 		<div class="wrap">
-			<h1><?php esc_html_e( 'PhoenixWP Fix — German Market DHL & WCML', 'phoenix-wp-bridge-german-market-wcml' ); ?></h1>
+			<h1><?php esc_html_e( 'PhoenixWP Fix — German Market DHL & WCML', 'phoenix-german-market-dhl-wcml-fix-for-woocommerce' ); ?></h1>
 			<p class="description">
-				<strong><?php esc_html_e( 'WCML Multi-Currency Compatibility Fix', 'phoenix-wp-bridge-german-market-wcml' ); ?></strong>
-				<?php esc_html_e( '— DHL free-shipping thresholds and shipping costs.', 'phoenix-wp-bridge-german-market-wcml' ); ?>
+				<strong><?php esc_html_e( 'WCML Multi-Currency Compatibility Fix', 'phoenix-german-market-dhl-wcml-fix-for-woocommerce' ); ?></strong>
+				<?php esc_html_e( '— DHL free-shipping thresholds and shipping costs.', 'phoenix-german-market-dhl-wcml-fix-for-woocommerce' ); ?>
 				<br />
-				<strong><?php esc_html_e( 'German Market DHL International Address Fix', 'phoenix-wp-bridge-german-market-wcml' ); ?></strong>
-				<?php esc_html_e( '— street/house-number parsing for DHL labels.', 'phoenix-wp-bridge-german-market-wcml' ); ?>
+				<strong><?php esc_html_e( 'German Market DHL International Address Fix', 'phoenix-german-market-dhl-wcml-fix-for-woocommerce' ); ?></strong>
+				<?php esc_html_e( '— street/house-number parsing for DHL labels.', 'phoenix-german-market-dhl-wcml-fix-for-woocommerce' ); ?>
 			</p>
 			<p class="description">
-				<?php esc_html_e( 'Requires German Market (DHL add-on) and WCML multi-currency — not included.', 'phoenix-wp-bridge-german-market-wcml' ); ?>
+				<?php esc_html_e( 'Requires German Market (DHL add-on) and WCML multi-currency — not included.', 'phoenix-german-market-dhl-wcml-fix-for-woocommerce' ); ?>
 			</p>
 
 			<?php $this->render_dependency_notices(); ?>
@@ -124,35 +124,35 @@ final class Settings_Page {
 				?>
 				<table class="form-table" role="presentation">
 					<tr>
-						<th scope="row"><?php esc_html_e( 'DHL thresholds', 'phoenix-wp-bridge-german-market-wcml' ); ?></th>
+						<th scope="row"><?php esc_html_e( 'DHL thresholds', 'phoenix-german-market-dhl-wcml-fix-for-woocommerce' ); ?></th>
 						<td>
 							<label>
 								<input type="checkbox" name="<?php echo esc_attr( Settings::OPTION_KEY ); ?>[convert_dhl_thresholds]" value="1" <?php checked( $settings['convert_dhl_thresholds'] ); ?> />
-								<?php esc_html_e( 'Convert free/minimum amounts (EUR) with WCML before comparing cart totals', 'phoenix-wp-bridge-german-market-wcml' ); ?>
+								<?php esc_html_e( 'Convert free/minimum amounts (EUR) with WCML before comparing cart totals', 'phoenix-german-market-dhl-wcml-fix-for-woocommerce' ); ?>
 							</label>
 							<p class="description">
-								<?php esc_html_e( 'Targets dhl_home_delivery, dhl_packstation, dhl_parcelshops.', 'phoenix-wp-bridge-german-market-wcml' ); ?>
+								<?php esc_html_e( 'Targets dhl_home_delivery, dhl_packstation, dhl_parcelshops.', 'phoenix-german-market-dhl-wcml-fix-for-woocommerce' ); ?>
 							</p>
 						</td>
 					</tr>
 					<tr>
-						<th scope="row"><?php esc_html_e( 'DHL shipping costs', 'phoenix-wp-bridge-german-market-wcml' ); ?></th>
+						<th scope="row"><?php esc_html_e( 'DHL shipping costs', 'phoenix-german-market-dhl-wcml-fix-for-woocommerce' ); ?></th>
 						<td>
 							<label>
 								<input type="checkbox" name="<?php echo esc_attr( Settings::OPTION_KEY ); ?>[convert_dhl_shipping_costs]" value="1" <?php checked( $settings['convert_dhl_shipping_costs'] ); ?> />
-								<?php esc_html_e( 'Convert configured DHL shipping costs (EUR) with WCML on checkout', 'phoenix-wp-bridge-german-market-wcml' ); ?>
+								<?php esc_html_e( 'Convert configured DHL shipping costs (EUR) with WCML on checkout', 'phoenix-german-market-dhl-wcml-fix-for-woocommerce' ); ?>
 							</label>
 							<p class="description">
-								<?php esc_html_e( 'Converts flat rates such as 5,00 EUR / 15,00 EUR to the active currency (WCML does not convert custom GM DHL methods automatically).', 'phoenix-wp-bridge-german-market-wcml' ); ?>
+								<?php esc_html_e( 'Converts flat rates such as 5,00 EUR / 15,00 EUR to the active currency (WCML does not convert custom GM DHL methods automatically).', 'phoenix-german-market-dhl-wcml-fix-for-woocommerce' ); ?>
 							</p>
 						</td>
 					</tr>
 					<tr>
-						<th scope="row"><?php esc_html_e( 'International address', 'phoenix-wp-bridge-german-market-wcml' ); ?></th>
+						<th scope="row"><?php esc_html_e( 'International address', 'phoenix-german-market-dhl-wcml-fix-for-woocommerce' ); ?></th>
 						<td>
 							<label>
 								<input type="checkbox" name="<?php echo esc_attr( Settings::OPTION_KEY ); ?>[fix_address_parsing]" value="1" <?php checked( $settings['fix_address_parsing'] ); ?> />
-								<?php esc_html_e( 'Fix number-first addresses (e.g. France) for DHL checkout and labels', 'phoenix-wp-bridge-german-market-wcml' ); ?>
+								<?php esc_html_e( 'Fix number-first addresses (e.g. France) for DHL checkout and labels', 'phoenix-german-market-dhl-wcml-fix-for-woocommerce' ); ?>
 							</label>
 						</td>
 					</tr>
@@ -169,19 +169,19 @@ final class Settings_Page {
 	private function render_dependency_notices(): void {
 		if ( ! phoenix_wp_bridge_gm_wcml_is_german_market_active() ) {
 			echo '<div class="notice notice-warning inline"><p>';
-			esc_html_e( 'German Market is not active. DHL integrations will not run.', 'phoenix-wp-bridge-german-market-wcml' );
+			esc_html_e( 'German Market is not active. DHL integrations will not run.', 'phoenix-german-market-dhl-wcml-fix-for-woocommerce' );
 			echo '</p></div>';
 		}
 
 		if ( ! phoenix_wp_bridge_gm_wcml_is_wcml_active() ) {
 			echo '<div class="notice notice-warning inline"><p>';
-			esc_html_e( 'WCML multi-currency functions were not detected. Threshold conversion requires WooCommerce Multilingual.', 'phoenix-wp-bridge-german-market-wcml' );
+			esc_html_e( 'WCML multi-currency functions were not detected. Threshold conversion requires WooCommerce Multilingual.', 'phoenix-german-market-dhl-wcml-fix-for-woocommerce' );
 			echo '</p></div>';
 		}
 
 		if ( Install::integrations_available() ) {
 			echo '<div class="notice notice-success inline"><p>';
-			esc_html_e( 'Dependencies OK — compatibility fixes are active.', 'phoenix-wp-bridge-german-market-wcml' );
+			esc_html_e( 'Dependencies OK — compatibility fixes are active.', 'phoenix-german-market-dhl-wcml-fix-for-woocommerce' );
 			echo '</p></div>';
 		}
 	}

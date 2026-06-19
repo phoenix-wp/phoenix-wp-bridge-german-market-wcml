@@ -27,7 +27,7 @@ foreach ($field in @('Contributors:', 'Requires at least:', 'Tested up to:', 'Re
 
 if ($headerBlock -match 'Stable tag:\s*([0-9.]+)') {
 	$stableTag = $Matches[1]
-	$mainFile = Join-Path $root 'phoenix-wp-bridge-german-market-wcml.php'
+	$mainFile = Join-Path $root 'phoenix-german-market-dhl-wcml-fix-for-woocommerce.php'
 	$mainContent = Get-Content $mainFile -Raw
 	if ($mainContent -notmatch "Version:\s*$stableTag") {
 		$errors += "Stable tag ($stableTag) does not match plugin header Version."

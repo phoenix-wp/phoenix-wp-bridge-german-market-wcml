@@ -1,5 +1,6 @@
 /dist/
-/vendor/
+/vendor/*
+!/vendor/freemius/
 /node_modules/
 /.svn-wp-org/
 .DS_Store

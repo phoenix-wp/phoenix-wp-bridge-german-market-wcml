@@ -4,7 +4,7 @@
 
 This plugin is **Loco Translate ready**:
 
-- Text domain: `phoenix-wp-bridge-german-market-wcml`
+- Text domain: `phoenix-german-market-dhl-wcml-fix-for-woocommerce`
 - Bundle: `loco.xml` in the plugin root
 - Save custom translations here as `{locale}.po` / `{locale}.mo`
 

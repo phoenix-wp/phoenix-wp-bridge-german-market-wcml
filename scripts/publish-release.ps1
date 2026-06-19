@@ -13,7 +13,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
-$pluginSlug = 'phoenix-wp-bridge-german-market-wcml'
+$pluginSlug = 'phoenix-german-market-dhl-wcml-fix-for-woocommerce'
 $buildScript = Join-Path $PSScriptRoot 'build-release.ps1'
 
 if ($Deploy) {

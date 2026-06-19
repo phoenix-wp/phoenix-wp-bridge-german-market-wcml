@@ -8,7 +8,12 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
-$pluginSlug = 'phoenix-wp-bridge-german-market-wcml'
+$pluginSlug = 'phoenix-german-market-dhl-wcml-fix-for-woocommerce'
+$coreHelpers = Join-Path (Split-Path -Parent $root) 'phoenix-wp-core\scripts\wp-org-release-helpers.ps1'
+if (-not (Test-Path $coreHelpers)) {
+	throw "Missing shared helpers: $coreHelpers"
+}
+. $coreHelpers
 
 if ($Version -eq '') {
 	$mainFile = Join-Path $root "$pluginSlug.php"
@@ -24,43 +29,19 @@ $distDir = Join-Path $root 'dist'
 $stageDir = Join-Path $env:TEMP $pluginSlug
 $zipPath = Join-Path $distDir "$pluginSlug-$Version.zip"
 
-$excludeNames = @(
-	'.git', '.github', 'dist', 'scripts', 'wp-org-assets',
-	'composer.lock', 'composer.phar', 'vendor', 'node_modules', '.svn-wp-org',
-	'.gitignore', '.DS_Store', 'Thumbs.db'
-)
-
+$extraExcludes = @('vendor', '.svn-wp-org')
 if ($Deploy) {
-	$excludeNames += @('docs', 'README.md')
+	$extraExcludes += @('docs', 'README.md')
 	$zipPath = Join-Path $distDir "$pluginSlug-$Version-deploy.zip"
 }
 
-if (Test-Path $stageDir) {
-	Remove-Item -Recurse -Force $stageDir -ErrorAction SilentlyContinue
-}
-New-Item -ItemType Directory -Path $stageDir -Force | Out-Null
 if (-not (Test-Path $distDir)) {
 	New-Item -ItemType Directory -Path $distDir -Force | Out-Null
 }
 
-Get-ChildItem -Path $root -Force | Where-Object {
-	$_.Name -notin $excludeNames
-} | ForEach-Object {
-	Copy-Item -Path $_.FullName -Destination $stageDir -Recurse -Force
-}
-
-if (Test-Path $zipPath) {
-	Remove-Item -Force $zipPath -ErrorAction SilentlyContinue
-}
-
-Push-Location $env:TEMP
-try {
-	tar -a -c -f $zipPath $pluginSlug
-} finally {
-	Pop-Location
-}
-
-Remove-Item -Recurse -Force $stageDir -ErrorAction SilentlyContinue
+Copy-PhoenixPluginToStage -Root $root -StageDir $stageDir -ExcludeNames (Get-PhoenixWpOrgStageExcludeNames -Extra $extraExcludes)
+New-PhoenixPluginReleaseZip -StageDir $stageDir -PluginSlug $pluginSlug -ZipPath $zipPath
+Test-PhoenixPluginReleaseZip -ZipPath $zipPath -PluginSlug $pluginSlug -RequireDistinctUris
 
 $suffix = if ($Deploy) { ' (deploy)' } else { '' }
-Write-Host "Built $zipPath$suffix"
+Write-Host "Built $zipPath$suffix (tar paths for wp.org)"

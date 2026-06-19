@@ -1,7 +1,7 @@
 # wordpress.org submission — PhoenixWP Fix (German Market DHL & WCML)
 
 > **Free plugin · no Pro tier**  
-> **Suggested SVN slug:** `phoenix-wp-bridge-german-market-wcml`  
+> **Suggested SVN slug:** `phoenix-german-market-dhl-wcml-fix-for-woocommerce`  
 > **Display name:** PhoenixWP Fix — German Market DHL & WCML
 
 Canonical spec: `phoenix-wp-core/docs/plugins/PHOENIX-WP-BRIDGE-GERMAN-MARKET-WCML.md`
@@ -27,7 +27,7 @@ Use **Fix** in the directory title and two feature subtitles in `readme.txt`:
 
 ### Code & header
 
-- [x] `phoenix-wp-bridge-german-market-wcml.php` — Plugin Name includes **Fix**
+- [x] `phoenix-german-market-dhl-wcml-fix-for-woocommerce.php` — Plugin Name includes **Fix**
 - [x] `Requires Plugins: woocommerce` (GM + WCML = soft deps + admin notices)
 - [x] HPOS compatibility declared
 - [x] GPL-2.0-or-later
@@ -53,9 +53,9 @@ Use **Fix** in the directory title and two feature subtitles in `readme.txt`:
 ### Build
 
 ```powershell
-cd phoenix-wp-bridge-german-market-wcml
+cd phoenix-german-market-dhl-wcml-fix-for-woocommerce
 .\scripts\build-release.ps1
-# → dist/phoenix-wp-bridge-german-market-wcml-1.0.0.zip
+# → dist/phoenix-german-market-dhl-wcml-fix-for-woocommerce-1.0.0.zip
 ```
 
 - [ ] ZIP installs on clean WP + WC + GM + WCML
@@ -84,9 +84,9 @@ Use when the wp.org account is approved (same account as Gift):
 | Field | Value |
 |-------|-------|
 | **Plugin name** | PhoenixWP Fix — German Market DHL & WCML |
-| **Plugin slug** | `phoenix-wp-bridge-german-market-wcml` |
+| **Plugin slug** | `phoenix-german-market-dhl-wcml-fix-for-woocommerce` |
 | **Short description** | WCML multi-currency compatibility fix and German Market DHL international address fix. Requires German Market DHL + WCML (not included). |
-| **Plugin URL** | https://github.com/phoenix-wp/phoenix-wp-bridge-german-market-wcml |
+| **Plugin URL** | https://github.com/phoenix-wp/phoenix-german-market-dhl-wcml-fix-for-woocommerce |
 | **Notes for reviewer** | Compatibility fix only — not a fork of German Market or WCML. Requires both commercial plugins. No external calls, no telemetry. Tested with GM DHL 3.58.x, WCML multi-currency, WooCommerce HPOS. |
 
 After approval email: run `.\scripts\wp-org-svn-deploy.ps1 -Version 1.0.0`, review, commit.
@@ -102,7 +102,7 @@ After approval email: run `.\scripts\wp-org-svn-deploy.ps1 -Version 1.0.0`, revi
 
 Manual alternative:
 
-1. `svn co https://plugins.svn.wordpress.org/phoenix-wp-bridge-german-market-wcml`
+1. `svn co https://plugins.svn.wordpress.org/phoenix-german-market-dhl-wcml-fix-for-woocommerce`
 2. Copy release ZIP contents → `trunk/`
 3. Copy PNGs from `wp-org-assets/` → `assets/`
 4. Tag `tags/1.0.0/` from trunk
