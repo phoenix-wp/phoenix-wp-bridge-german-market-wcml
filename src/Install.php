@@ -19,8 +19,6 @@ final class Install {
 	public const MIN_WP  = '6.7';
 	public const MIN_PHP = '8.2';
 
-	private const LEGACY_OPTION_KEY = 'phoenix_wp_bridge_gm_wcml_settings';
-
 	/**
 	 * Registers lifecycle hooks.
 	 */
@@ -41,8 +39,6 @@ final class Install {
 				array( 'back_link' => true )
 			);
 		}
-
-		self::migrate_legacy_settings();
 
 		if ( ! get_option( Settings::OPTION_KEY ) ) {
 			add_option( Settings::OPTION_KEY, Settings::defaults() );
@@ -84,22 +80,5 @@ final class Install {
 	 */
 	public static function integrations_available(): bool {
 		return phoenix_gm_dhl_mc_fix_is_german_market_active() && phoenix_gm_dhl_mc_fix_is_wcml_active();
-	}
-
-	/**
-	 * Copies settings from the pre-review option key when present.
-	 */
-	private static function migrate_legacy_settings(): void {
-		$legacy = get_option( self::LEGACY_OPTION_KEY, null );
-
-		if ( null === $legacy || false === $legacy ) {
-			return;
-		}
-
-		if ( false === get_option( Settings::OPTION_KEY, false ) ) {
-			update_option( Settings::OPTION_KEY, $legacy );
-		}
-
-		delete_option( self::LEGACY_OPTION_KEY );
 	}
 }

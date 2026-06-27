@@ -15,13 +15,11 @@ use PhoenixWP\GmDhlMcFix\Settings;
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Settings under WooCommerce or PhoenixWP Core menu.
+ * Settings under WooCommerce.
  */
 final class Settings_Page {
 
 	private static ?self $instance = null;
-
-	public const CORE_MENU_SLUG = 'phoenix-wp-core';
 
 	public const PAGE_SLUG = 'phoenix-german-market-dhl-multi-currency-fix-for-woocommerce';
 
@@ -44,15 +42,14 @@ final class Settings_Page {
 	}
 
 	/**
-	 * Adds submenu: under PhoenixWP Core when present, otherwise under WooCommerce.
+	 * Adds submenu under WooCommerce.
 	 */
 	public function register_menu(): void {
 		$page_title = __( 'GM DHL WCML Fix', 'phoenix-german-market-dhl-multi-currency-fix-for-woocommerce' );
 		$menu_title = $page_title;
-		$parent     = phoenix_gm_dhl_mc_fix_is_core_active() ? self::CORE_MENU_SLUG : 'woocommerce';
 
 		add_submenu_page(
-			$parent,
+			'woocommerce',
 			$page_title,
 			$menu_title,
 			'manage_woocommerce',

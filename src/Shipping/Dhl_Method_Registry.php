@@ -15,8 +15,8 @@ defined( 'ABSPATH' ) || exit;
  * Registry of GM DHL shipping methods and threshold field names.
  *
  * WooCommerce stores instance settings as serialized arrays under
- * woocommerce_{method_id}_{instance_id}_settings. Vitalstoffversand also
- * exposes flat option keys (legacy / admin UI) such as:
+ * woocommerce_{method_id}_{instance_id}_settings. Some shops also
+ * expose flat option keys (legacy / admin UI) such as:
  * woocommerce_dhl_home_delivery_minimum_amount
  */
 final class Dhl_Method_Registry {

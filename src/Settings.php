@@ -37,13 +37,6 @@ final class Settings {
 	 * @return array<string, bool>
 	 */
 	public static function get(): array {
-		$legacy = get_option( 'phoenix_wp_bridge_gm_wcml_settings', null );
-
-		if ( is_array( $legacy ) && false === get_option( self::OPTION_KEY, false ) ) {
-			update_option( self::OPTION_KEY, $legacy );
-			delete_option( 'phoenix_wp_bridge_gm_wcml_settings' );
-		}
-
 		$stored = get_option( self::OPTION_KEY, array() );
 
 		if ( ! is_array( $stored ) ) {

@@ -48,7 +48,7 @@ Works with **any WCML currency** and **any shipping zone** where these methods a
 
 = Settings =
 
-**WooCommerce → GM DHL WCML Fix** (or **PhoenixWP → GM DHL WCML Fix** when PhoenixWP Core is installed)
+**WooCommerce → GM DHL WCML Fix**
 
 Toggle each fix independently: thresholds, shipping costs, address parsing.
 

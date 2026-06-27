@@ -33,8 +33,8 @@ Use **Fix** in the directory title and two feature subtitles in `readme.txt`:
 | Freemius / premium paths | ✅ None |
 | External HTTP / telemetry | ✅ None |
 | HPOS | ✅ Declared |
-| `uninstall.php` | ✅ Removes `phoenix_gm_dhl_mc_fix_settings` (and legacy key) |
-| PhoenixWP Core | ✅ **Optional** — `register_module` + Admin unter **PhoenixWP** (wie Gift / Price Labels); ohne Core unter **WooCommerce** |
+| `uninstall.php` | ✅ Removes `phoenix_gm_dhl_mc_fix_settings` only |
+| PhoenixWP Core | ✅ **Nicht im wp.org-Paket** — Admin nur unter **WooCommerce** (Core ist nicht öffentlich) |
 | Security (nonces, caps) | ✅ Settings via `options.php` + `manage_woocommerce` |
 | i18n | ✅ JIT via wp.org (`languages/de_DE` bundled) |
 | wp.org ZIP artifacts | ✅ No `docs/`, `loco.xml`, root `README.md`, `scripts/` |
@@ -53,7 +53,6 @@ Use **Fix** in the directory title and two feature subtitles in `readme.txt`:
 | `wcml` class prefix | Renamed `Wcml_Converter` → `Multicurrency_Price_Converter` |
 | `$woocommerce_wpml` global | Read via `$GLOBALS['woocommerce_wpml']` into `$pgmdhlmc_wcml` (WPML core global, not a plugin symbol) |
 | Namespace | `PhoenixWP\GmDhlMcFix` |
-| Legacy option | `phoenix_wp_bridge_gm_wcml_settings` migrated on load/activate; removed on uninstall |
 
 Resubmit ZIP: `dist/phoenix-german-market-dhl-multi-currency-fix-for-woocommerce-1.0.0.zip`
 

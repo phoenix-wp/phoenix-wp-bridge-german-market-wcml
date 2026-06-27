@@ -11,7 +11,6 @@ namespace PhoenixWP\GmDhlMcFix;
 
 use PhoenixWP\GmDhlMcFix\Admin\Settings_Page;
 use PhoenixWP\GmDhlMcFix\Integration\German_Market_Dhl;
-use PhoenixWP\Core\Module_Registry;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -34,7 +33,6 @@ final class Plugin {
 
 	private function __construct() {
 		add_action( 'before_woocommerce_init', array( $this, 'declare_woocommerce_compatibility' ) );
-		add_action( 'phoenix_wp_core_register_modules', array( $this, 'register_module' ) );
 		add_action( 'plugins_loaded', array( $this, 'init' ), 20 );
 		add_action( 'admin_notices', array( $this, 'dependency_notices' ) );
 	}
@@ -76,25 +74,6 @@ final class Plugin {
 		 * Fires when the bridge plugin is fully loaded.
 		 */
 		do_action( 'phoenix_gm_dhl_mc_fix_loaded' );
-	}
-
-	/**
-	 * Registers module metadata with PhoenixWP Core (when Core is active).
-	 *
-	 * @param Module_Registry $registry Core registry.
-	 */
-	public function register_module( Module_Registry $registry ): void {
-		$registry->register(
-			array(
-				'slug'    => 'phoenix-german-market-dhl-multi-currency-fix-for-woocommerce',
-				// Plain name: Core fires this hook on plugins_loaded (before init); no __() here (WP 6.7 JIT notice).
-				'name'    => 'Phoenix German Market DHL Multi-Currency Fix for WooCommerce',
-				'version' => PHOENIX_GM_DHL_MC_FIX_VERSION,
-				'type'    => Module_Registry::TYPE_EXTENSION,
-				'tier'    => 'free',
-				'file'    => PHOENIX_GM_DHL_MC_FIX_FILE,
-			)
-		);
 	}
 
 	/**
