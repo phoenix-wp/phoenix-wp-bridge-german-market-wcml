@@ -3,7 +3,7 @@
 > **Free plugin · no Pro tier**  
 > **SVN slug:** `phoenix-german-market-dhl-multi-currency-fix-for-woocommerce`  
 > **Display name:** PhoenixWP Fix — German Market DHL & WCML  
-> **Stand:** 2026-06-26 — **Einreichung jetzt** (PCP + ReadMe + Smoke ✅)
+> **Stand:** 2026-06-27 — **Live auf wordpress.org** (SVN Rev. **3589927**, Tag `1.0.0`)
 
 Canonical spec: `phoenix-wp-core/docs/plugins/PHOENIX-WP-GM-DHL-MC-FIX.md`
 
@@ -42,7 +42,7 @@ Use **Fix** in the directory title and two feature subtitles in `readme.txt`:
 | WC tested | ✅ **10.9.1** |
 | readme ↔ header version | ✅ **1.0.0** |
 
-**Note:** SVN slug is **not live yet** — first step is the [plugin add form](https://wordpress.org/plugins/developers/add/) (upload ZIP). SVN deploy **after** approval email.
+**Note:** Live — https://wordpress.org/plugins/phoenix-german-market-dhl-multi-currency-fix-for-woocommerce/ · SVN Rev. **3589927** (2026-06-27).
 
 ### wp.org review fixes (2026-06-25)
 
